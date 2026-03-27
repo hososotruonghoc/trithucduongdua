@@ -29,6 +29,7 @@ h1{font-family:'Baloo 2',cursive;font-size:1.8em;color:#1e3a6e;margin-bottom:2px
 .form-group input{width:100%;padding:14px 18px;border-radius:14px;border:2px solid #e2e8f0;
   font-size:1.05em;font-family:'Nunito',sans-serif;font-weight:600;outline:none;transition:.3s;background:#f8fafc}
 .form-group input:focus{border-color:#3b82f6;box-shadow:0 0 0 4px rgba(59,130,246,.1)}
+#password:focus{-webkit-text-security:none;text-security:none;color:#64748b}
 .btn-login{width:100%;padding:15px;border:none;border-radius:14px;
   background:linear-gradient(135deg,#3b82f6,#2563eb);color:white;
   font-family:'Baloo 2',cursive;font-size:1.3em;cursor:pointer;
@@ -73,11 +74,11 @@ h1{font-family:'Baloo 2',cursive;font-size:1.8em;color:#1e3a6e;margin-bottom:2px
     </div>
     <div class="form-group">
       <label>🔑 Mật khẩu</label>
-      <input type="password" id="password" placeholder="Nhập mật khẩu..." autocomplete="off">
+      <input type="text" id="password" style="-webkit-text-security:disc;text-security:disc;font-family:monospace;letter-spacing:2px" placeholder="Nhập mật khẩu..." autocomplete="off">
     </div>
     <button class="btn-login" id="btnLogin" onclick="doLogin()">🔐 ĐĂNG NHẬP</button>
     <div class="msg" id="msg"></div>
-    <p class="footer">© 2026 Game Vui học. Thiết kế <strong>Chung Trần</strong> — Zalo 0913 031 073</p>
+    <p class="footer">© 2026 Game Vui học. Thiết kế <strong>Chung Trần</strong><br>Zalo 0913 031 073</p>
   </div>
 </div>
 
@@ -2545,6 +2546,498 @@ function resetAll(){
 &amp;lt;/script&amp;gt;
 &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;&lt;/textarea&gt;
+&lt;textarea id=&quot;game10&quot; style=&quot;display:none&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;quot;vi&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;
+&amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1.0&amp;quot;&amp;gt;
+&amp;lt;title&amp;gt;🏆 Đấu Trường Tri Thức&amp;lt;/title&amp;gt;
+&amp;lt;style&amp;gt;
+@import url(&amp;#x27;https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&amp;amp;family=Nunito:wght@400;600;700;800&amp;amp;display=swap&amp;#x27;);
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:&amp;#x27;Nunito&amp;#x27;,sans-serif;background:linear-gradient(135deg,#fdf2f8,#ede9fe,#dbeafe,#ecfdf5);min-height:100vh;color:#1e293b}
+.wrap{max-width:1200px;margin:0 auto;padding:12px;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+h1{font-family:&amp;#x27;Baloo 2&amp;#x27;,cursive;font-size:clamp(2em,5vw,3.2em);text-align:center;margin-bottom:2px}
+.h1-gold{background:linear-gradient(135deg,#f59e0b,#d97706,#b45309);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.tag{display:inline-block;background:linear-gradient(135deg,#7c3aed,#6d28d9);color:white;padding:4px 18px;border-radius:20px;font-size:.85em;font-weight:800;margin-bottom:8px}
+.sub{text-align:center;color:#475569;font-size:1em;font-weight:600;margin-bottom:14px}
+.setup{background:white;border-radius:24px;padding:28px;width:100%;max-width:620px;box-shadow:0 8px 32px rgba(0,0,0,.08);border:2px solid #c4b5fd}
+.setup label{display:block;font-weight:700;font-size:1.05em;margin:14px 0 5px;color:#7c3aed}
+.setup select,.setup input{width:100%;padding:12px 16px;border-radius:12px;border:2px solid #d1d5db;font-size:1em;font-family:&amp;#x27;Nunito&amp;#x27;,sans-serif;font-weight:600;background:#f9fafb;outline:none}
+.setup select:focus,.setup input:focus{border-color:#7c3aed}
+.mode-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.mode-card{padding:16px;border-radius:16px;border:3px solid #e2e8f0;cursor:pointer;text-align:center;transition:.3s;background:#fafafa}
+.mode-card:hover{border-color:#7c3aed;background:#f5f3ff;transform:translateY(-2px)}
+.mode-card.selected{border-color:#7c3aed;background:#ede9fe}
+.mode-card .mc-icon{font-size:2em;margin-bottom:4px}
+.mode-card .mc-title{font-family:&amp;#x27;Baloo 2&amp;#x27;,cursive;font-size:1.1em;color:#5b21b6}
+.mode-card .mc-desc{font-size:.75em;color:#64748b}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:14px 36px;border:none;border-radius:14px;font-family:&amp;#x27;Baloo 2&amp;#x27;,cursive;font-size:1.2em;cursor:pointer;transition:all .3s;box-shadow:0 4px 15px rgba(0,0,0,.1)}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(0)}
+.btn-go{background:linear-gradient(135deg,#7c3aed,#6d28d9);color:white;width:100%;margin-top:16px}
+.btn-next{background:linear-gradient(135deg,#3b82f6,#2563eb);color:white}
+.hidden{display:none!important}
+.game{width:100%}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px}
+.info{background:white;padding:8px 18px;border-radius:12px;font-weight:700;font-size:1em;box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid #c4b5fd}
+.timer{font-family:&amp;#x27;Baloo 2&amp;#x27;,cursive;font-size:2em;color:#7c3aed}
+.timer.urgent{color:#dc2626;animation:bl .5s infinite}
+@keyframes bl{50%{opacity:.5}}
+.sc{color:#7c3aed;font-family:&amp;#x27;Baloo 2&amp;#x27;,cursive;font-size:1.2em}
+.level-bar{display:flex;align-items:center;gap:6px;margin:6px 0 10px;flex-wrap:wrap}
+.level-badge{padding:4px 14px;border-radius:20px;font-weight:800;font-size:.85em;transition:.3s}
+.level-badge.active{box-shadow:0 2px 10px rgba(0,0,0,.15);transform:scale(1.05)}
+.l-easy{background:#dcfce7;color:#166534}.l-med{background:#fef9c3;color:#854d0e}.l-hard{background:#fee2e2;color:#991b1b}.l-master{background:#ede9fe;color:#5b21b6}
+.pbar{width:100%;height:8px;background:#e2e8f0;border-radius:4px;overflow:hidden;flex:1}
+.pfill{height:100%;border-radius:4px;transition:width .4s;background:linear-gradient(90deg,#7c3aed,#a78bfa)}
+.q-card{background:white;border-radius:24px;padding:30px 26px;text-align:center;box-shadow:0 6px 24px rgba(0,0,0,.06);border:2px solid #c4b5fd;margin-bottom:10px;transition:.4s}
+.q-card.ok{border-color:#22c55e;background:#f0fdf4}.q-card.no{border-color:#ef4444;background:#fef2f2}
+.q-num{font-size:.85em;color:#7c3aed;font-weight:700}
+.q-diff{display:inline-block;padding:2px 10px;border-radius:6px;font-size:.75em;font-weight:800;margin:4px 0}
+.q-text{font-family:&amp;#x27;Baloo 2&amp;#x27;,cursive;font-size:clamp(1.5em,3.5vw,2.5em);margin:10px 0 18px;color:#1e293b;line-height:1.3}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:800px;margin:0 auto}
+.opt{padding:16px 20px;border-radius:14px;border:3px solid #e2e8f0;background:#f9fafb;font-size:clamp(1.05em,2vw,1.35em);font-weight:700;cursor:pointer;transition:.3s;text-align:center}
+.opt:hover{border-color:#7c3aed;background:#f5f3ff;transform:scale(1.02)}
+.opt.correct{border-color:#22c55e;background:#dcfce7;color:#166534}
+.opt.wrong{border-color:#ef4444;background:#fee2e2;color:#991b1b}
+.fb{font-family:&amp;#x27;Baloo 2&amp;#x27;,cursive;font-size:1.8em;margin:10px 0;min-height:36px}
+.fb.ok{color:#16a34a}.fb.no{color:#dc2626}
+.streak{font-size:.9em;color:#7c3aed;font-weight:700;margin-top:4px}
+.ctrls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.result{background:white;border-radius:24px;padding:32px;max-width:550px;box-shadow:0 8px 32px rgba(0,0,0,.08);text-align:center;border:2px solid #c4b5fd}
+.rank-title{font-family:&amp;#x27;Baloo 2&amp;#x27;,cursive;font-size:2.4em;margin:8px 0}
+.rank-gold{color:#d97706}.rank-silver{color:#6b7280}.rank-bronze{color:#b45309}.rank-iron{color:#475569}
+.result-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0}
+.r-box{background:#f8fafc;border-radius:14px;padding:12px;border:2px solid #e2e8f0}
+.r-num{font-family:&amp;#x27;Baloo 2&amp;#x27;,cursive;font-size:1.8em;color:#7c3aed}
+.r-label{font-size:.8em;color:#64748b;font-weight:700}
+.vol-btn{position:fixed;bottom:12px;right:12px;z-index:100;width:40px;height:40px;border-radius:50%;border:2px solid #d1d5db;background:white;font-size:1.2em;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center}
+@media(max-width:600px){.q-text{font-size:1.3em}.opts{grid-template-columns:1fr}.mode-cards{grid-template-columns:1fr}}
+&amp;lt;/style&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;button class=&amp;quot;vol-btn&amp;quot; id=&amp;quot;volBtn&amp;quot; onclick=&amp;quot;toggleSound()&amp;quot;&amp;gt;🔊&amp;lt;/button&amp;gt;
+&amp;lt;div class=&amp;quot;wrap&amp;quot;&amp;gt;
+&amp;lt;div id=&amp;quot;setup&amp;quot;&amp;gt;
+  &amp;lt;h1&amp;gt;&amp;lt;span class=&amp;quot;h1-gold&amp;quot;&amp;gt;🏆 Đấu Trường Tri Thức&amp;lt;/span&amp;gt;&amp;lt;/h1&amp;gt;
+  &amp;lt;div class=&amp;quot;tag&amp;quot;&amp;gt;TRẠNG NGUYÊN NHÍ&amp;lt;/div&amp;gt;
+  &amp;lt;p class=&amp;quot;sub&amp;quot;&amp;gt;Thi đấu kiến thức Toán &amp;amp; Tiếng Việt – Lớp 5&amp;lt;/p&amp;gt;
+  &amp;lt;div class=&amp;quot;setup&amp;quot;&amp;gt;
+    &amp;lt;label&amp;gt;📚 Chọn môn thi:&amp;lt;/label&amp;gt;
+    &amp;lt;div class=&amp;quot;mode-cards&amp;quot;&amp;gt;
+      &amp;lt;div class=&amp;quot;mode-card selected&amp;quot; onclick=&amp;quot;selectSubject(this,&amp;#x27;toan&amp;#x27;)&amp;quot;&amp;gt;
+        &amp;lt;div class=&amp;quot;mc-icon&amp;quot;&amp;gt;📐&amp;lt;/div&amp;gt;
+        &amp;lt;div class=&amp;quot;mc-title&amp;quot;&amp;gt;TOÁN&amp;lt;/div&amp;gt;
+        &amp;lt;div class=&amp;quot;mc-desc&amp;quot;&amp;gt;100 câu • 4 cấp độ&amp;lt;/div&amp;gt;
+      &amp;lt;/div&amp;gt;
+      &amp;lt;div class=&amp;quot;mode-card&amp;quot; onclick=&amp;quot;selectSubject(this,&amp;#x27;tv&amp;#x27;)&amp;quot;&amp;gt;
+        &amp;lt;div class=&amp;quot;mc-icon&amp;quot;&amp;gt;📖&amp;lt;/div&amp;gt;
+        &amp;lt;div class=&amp;quot;mc-title&amp;quot;&amp;gt;TIẾNG VIỆT&amp;lt;/div&amp;gt;
+        &amp;lt;div class=&amp;quot;mc-desc&amp;quot;&amp;gt;100 câu • 4 cấp độ&amp;lt;/div&amp;gt;
+      &amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;label&amp;gt;🏅 Chọn cấp độ:&amp;lt;/label&amp;gt;
+    &amp;lt;select id=&amp;quot;level&amp;quot;&amp;gt;
+      &amp;lt;option value=&amp;quot;all&amp;quot; selected&amp;gt;🏆 Tất cả (20 câu random từ Dễ → Khó)&amp;lt;/option&amp;gt;
+      &amp;lt;option value=&amp;quot;easy&amp;quot;&amp;gt;🟢 Trạng cỏ (Dễ – 15 câu)&amp;lt;/option&amp;gt;
+      &amp;lt;option value=&amp;quot;medium&amp;quot;&amp;gt;🟡 Trạng bạc (Trung bình – 15 câu)&amp;lt;/option&amp;gt;
+      &amp;lt;option value=&amp;quot;hard&amp;quot;&amp;gt;🔴 Trạng vàng (Khó – 15 câu)&amp;lt;/option&amp;gt;
+      &amp;lt;option value=&amp;quot;master&amp;quot;&amp;gt;👑 Trạng nguyên (Rất khó – 10 câu)&amp;lt;/option&amp;gt;
+    &amp;lt;/select&amp;gt;
+    &amp;lt;label&amp;gt;👤 Nhập tên thí sinh:&amp;lt;/label&amp;gt;
+    &amp;lt;input type=&amp;quot;text&amp;quot; id=&amp;quot;playerName&amp;quot; placeholder=&amp;quot;Nhập tên em...&amp;quot; value=&amp;quot;&amp;quot;&amp;gt;
+    &amp;lt;button class=&amp;quot;btn btn-go&amp;quot; onclick=&amp;quot;startGame()&amp;quot;&amp;gt;⚔️ VÀO ĐẤU TRƯỜNG&amp;lt;/button&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;div id=&amp;quot;gameArea&amp;quot; class=&amp;quot;game hidden&amp;quot;&amp;gt;
+  &amp;lt;div class=&amp;quot;top&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;info&amp;quot; id=&amp;quot;lTag&amp;quot;&amp;gt;Toán&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;info timer&amp;quot; id=&amp;quot;tmr&amp;quot;&amp;gt;⏱️ 20s&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;info&amp;quot;&amp;gt;Câu &amp;lt;span id=&amp;quot;qN&amp;quot;&amp;gt;1&amp;lt;/span&amp;gt;/&amp;lt;span id=&amp;quot;qT&amp;quot;&amp;gt;20&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;info sc&amp;quot;&amp;gt;🏆 &amp;lt;span id=&amp;quot;sc&amp;quot;&amp;gt;0&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;div class=&amp;quot;level-bar&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;level-badge l-easy&amp;quot; id=&amp;quot;lb-easy&amp;quot;&amp;gt;🟢 Trạng cỏ&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;level-badge l-med&amp;quot; id=&amp;quot;lb-med&amp;quot;&amp;gt;🟡 Trạng bạc&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;level-badge l-hard&amp;quot; id=&amp;quot;lb-hard&amp;quot;&amp;gt;🔴 Trạng vàng&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;level-badge l-master&amp;quot; id=&amp;quot;lb-master&amp;quot;&amp;gt;👑 Trạng nguyên&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;pbar&amp;quot;&amp;gt;&amp;lt;div class=&amp;quot;pfill&amp;quot; id=&amp;quot;pbar&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;div class=&amp;quot;q-card&amp;quot; id=&amp;quot;qC&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;q-num&amp;quot; id=&amp;quot;qNum&amp;quot;&amp;gt;Câu 1/20&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;q-diff l-easy&amp;quot; id=&amp;quot;qDiff&amp;quot;&amp;gt;Trạng cỏ&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;q-text&amp;quot; id=&amp;quot;qText&amp;quot;&amp;gt;Câu hỏi...&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;opts&amp;quot; id=&amp;quot;optsD&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;fb&amp;quot; id=&amp;quot;fb&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;streak&amp;quot; id=&amp;quot;streakEl&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;div class=&amp;quot;ctrls&amp;quot;&amp;gt;&amp;lt;button class=&amp;quot;btn btn-next hidden&amp;quot; id=&amp;quot;btnN&amp;quot; onclick=&amp;quot;nextQ()&amp;quot;&amp;gt;Câu tiếp ➜&amp;lt;/button&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;div id=&amp;quot;resArea&amp;quot; class=&amp;quot;hidden&amp;quot;&amp;gt;
+  &amp;lt;div class=&amp;quot;result&amp;quot;&amp;gt;
+    &amp;lt;div style=&amp;quot;font-size:4.5em&amp;quot; id=&amp;quot;rE&amp;quot;&amp;gt;🏆&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;rank-title&amp;quot; id=&amp;quot;rRank&amp;quot;&amp;gt;Trạng nguyên&amp;lt;/div&amp;gt;
+    &amp;lt;div id=&amp;quot;rName&amp;quot; style=&amp;quot;font-size:1.1em;color:#64748b;margin-bottom:8px&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;result-grid&amp;quot;&amp;gt;
+      &amp;lt;div class=&amp;quot;r-box&amp;quot;&amp;gt;&amp;lt;div class=&amp;quot;r-num&amp;quot; id=&amp;quot;rScore&amp;quot;&amp;gt;0&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;r-label&amp;quot;&amp;gt;Điểm&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;
+      &amp;lt;div class=&amp;quot;r-box&amp;quot;&amp;gt;&amp;lt;div class=&amp;quot;r-num&amp;quot; id=&amp;quot;rCorrect&amp;quot;&amp;gt;0/0&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;r-label&amp;quot;&amp;gt;Đúng&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;
+      &amp;lt;div class=&amp;quot;r-box&amp;quot;&amp;gt;&amp;lt;div class=&amp;quot;r-num&amp;quot; id=&amp;quot;rStreak&amp;quot;&amp;gt;0&amp;lt;/div&amp;gt;&amp;lt;div class=&amp;quot;r-label&amp;quot;&amp;gt;Chuỗi max&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;div id=&amp;quot;rMsg&amp;quot; style=&amp;quot;font-size:1em;color:#475569;margin:10px 0&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;button class=&amp;quot;btn btn-go&amp;quot; onclick=&amp;quot;resetAll()&amp;quot;&amp;gt;⚔️ THI LẠI&amp;lt;/button&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;script&amp;gt;
+var audioCtx,soundOn=true;
+function initAudio(){if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)()}
+function playTone(f,d,t,v){if(!soundOn)return;initAudio();var o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type=t||&amp;#x27;sine&amp;#x27;;o.frequency.value=f;g.gain.value=v||.15;g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+d);o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+d)}
+function sndOk(){playTone(523,.08,&amp;#x27;sine&amp;#x27;,.22);setTimeout(function(){playTone(659,.08,&amp;#x27;sine&amp;#x27;,.22)},80);setTimeout(function(){playTone(784,.15,&amp;#x27;sine&amp;#x27;,.22)},160)}
+function sndNo(){playTone(200,.25,&amp;#x27;sawtooth&amp;#x27;,.12)}
+function sndUrgent(){playTone(880,.06,&amp;#x27;square&amp;#x27;,.1);setTimeout(function(){playTone(880,.06,&amp;#x27;square&amp;#x27;,.1)},120)}
+function sndWin(){[523,587,659,784,1047].forEach(function(f,i){setTimeout(function(){playTone(f,.18,&amp;#x27;sine&amp;#x27;,.2)},i*100)})}
+function sndStreak(){playTone(660,.06,&amp;#x27;sine&amp;#x27;,.15);setTimeout(function(){playTone(880,.1,&amp;#x27;sine&amp;#x27;,.18)},70)}
+function toggleSound(){soundOn=!soundOn;document.getElementById(&amp;#x27;volBtn&amp;#x27;).textContent=soundOn?&amp;#x27;🔊&amp;#x27;:&amp;#x27;🔇&amp;#x27;}
+
+var selectedSubject=&amp;#x27;toan&amp;#x27;;
+function selectSubject(el,subj){
+  document.querySelectorAll(&amp;#x27;.mode-card&amp;#x27;).forEach(function(c){c.classList.remove(&amp;#x27;selected&amp;#x27;)});
+  el.classList.add(&amp;#x27;selected&amp;#x27;);
+  selectedSubject=subj;
+}
+
+var TOAN=[
+  {q:&amp;quot;3,5 + 2,7 = ?&amp;quot;,o:[&amp;quot;5,2&amp;quot;,&amp;quot;6,2&amp;quot;,&amp;quot;6,7&amp;quot;,&amp;quot;5,7&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;8,4 − 3,6 = ?&amp;quot;,o:[&amp;quot;4,8&amp;quot;,&amp;quot;5,8&amp;quot;,&amp;quot;4,2&amp;quot;,&amp;quot;5,2&amp;quot;],a:0,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;2,5 × 4 = ?&amp;quot;,o:[&amp;quot;8&amp;quot;,&amp;quot;10&amp;quot;,&amp;quot;12&amp;quot;,&amp;quot;9&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;1/4 + 2/4 = ?&amp;quot;,o:[&amp;quot;3/4&amp;quot;,&amp;quot;3/8&amp;quot;,&amp;quot;2/4&amp;quot;,&amp;quot;1/2&amp;quot;],a:0,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;25% của 200 = ?&amp;quot;,o:[&amp;quot;25&amp;quot;,&amp;quot;50&amp;quot;,&amp;quot;75&amp;quot;,&amp;quot;100&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;1 giờ = ? phút&amp;quot;,o:[&amp;quot;30&amp;quot;,&amp;quot;60&amp;quot;,&amp;quot;100&amp;quot;,&amp;quot;120&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;So sánh: 3/5 ☐ 2/5&amp;quot;,o:[&amp;quot;&amp;gt;&amp;quot;,&amp;quot;&amp;lt;&amp;quot;,&amp;quot;=&amp;quot;,&amp;quot;Không SS được&amp;quot;],a:0,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;50% của 86 = ?&amp;quot;,o:[&amp;quot;43&amp;quot;,&amp;quot;42&amp;quot;,&amp;quot;44&amp;quot;,&amp;quot;40&amp;quot;],a:0,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;12,5 + 7,8 = ?&amp;quot;,o:[&amp;quot;20,3&amp;quot;,&amp;quot;19,3&amp;quot;,&amp;quot;20,8&amp;quot;,&amp;quot;19,8&amp;quot;],a:0,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;1 km = ? m&amp;quot;,o:[&amp;quot;10&amp;quot;,&amp;quot;100&amp;quot;,&amp;quot;1000&amp;quot;,&amp;quot;10000&amp;quot;],a:2,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;4,5 × 2 = ?&amp;quot;,o:[&amp;quot;8&amp;quot;,&amp;quot;9&amp;quot;,&amp;quot;8,5&amp;quot;,&amp;quot;9,5&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;6,3 + 4,9 = ?&amp;quot;,o:[&amp;quot;10,2&amp;quot;,&amp;quot;11,2&amp;quot;,&amp;quot;10,9&amp;quot;,&amp;quot;11,9&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;1 phút = ? giây&amp;quot;,o:[&amp;quot;30&amp;quot;,&amp;quot;60&amp;quot;,&amp;quot;100&amp;quot;,&amp;quot;120&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;7/10 + 3/10 = ?&amp;quot;,o:[&amp;quot;10/10&amp;quot;,&amp;quot;10/20&amp;quot;,&amp;quot;1&amp;quot;,&amp;quot;Cả A và C&amp;quot;],a:3,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;9,1 − 2,8 = ?&amp;quot;,o:[&amp;quot;7,3&amp;quot;,&amp;quot;6,3&amp;quot;,&amp;quot;6,9&amp;quot;,&amp;quot;7,9&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;Hình lập phương có mấy mặt?&amp;quot;,o:[&amp;quot;4&amp;quot;,&amp;quot;6&amp;quot;,&amp;quot;8&amp;quot;,&amp;quot;12&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;10% của 150 = ?&amp;quot;,o:[&amp;quot;10&amp;quot;,&amp;quot;15&amp;quot;,&amp;quot;20&amp;quot;,&amp;quot;25&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;Phân số nào bằng 1/2?&amp;quot;,o:[&amp;quot;2/3&amp;quot;,&amp;quot;3/6&amp;quot;,&amp;quot;2/5&amp;quot;,&amp;quot;4/6&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;1,5 + 2,5 + 3,5 = ?&amp;quot;,o:[&amp;quot;6,5&amp;quot;,&amp;quot;7,0&amp;quot;,&amp;quot;7,5&amp;quot;,&amp;quot;8,0&amp;quot;],a:2,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;3/4 − 1/2 = ?&amp;quot;,o:[&amp;quot;1/4&amp;quot;,&amp;quot;2/4&amp;quot;,&amp;quot;1/2&amp;quot;,&amp;quot;2/2&amp;quot;],a:0,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;1 ngày = ? giờ&amp;quot;,o:[&amp;quot;12&amp;quot;,&amp;quot;24&amp;quot;,&amp;quot;36&amp;quot;,&amp;quot;48&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;0,5 × 0,5 = ?&amp;quot;,o:[&amp;quot;0,1&amp;quot;,&amp;quot;0,25&amp;quot;,&amp;quot;0,5&amp;quot;,&amp;quot;1,0&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;15,2 − 6,7 = ?&amp;quot;,o:[&amp;quot;8,5&amp;quot;,&amp;quot;9,5&amp;quot;,&amp;quot;8,7&amp;quot;,&amp;quot;9,7&amp;quot;],a:0,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;1 thế kỉ = ? năm&amp;quot;,o:[&amp;quot;10&amp;quot;,&amp;quot;50&amp;quot;,&amp;quot;100&amp;quot;,&amp;quot;1000&amp;quot;],a:2,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;20% của 350 = ?&amp;quot;,o:[&amp;quot;60&amp;quot;,&amp;quot;70&amp;quot;,&amp;quot;80&amp;quot;,&amp;quot;65&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;4,25 + 3,75 = ?&amp;quot;,o:[&amp;quot;7,00&amp;quot;,&amp;quot;8,00&amp;quot;,&amp;quot;7,50&amp;quot;,&amp;quot;8,50&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;3,6 × 5 = ?&amp;quot;,o:[&amp;quot;15&amp;quot;,&amp;quot;16&amp;quot;,&amp;quot;18&amp;quot;,&amp;quot;20&amp;quot;],a:2,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;S tam giác đáy 8, cao 6 = ?&amp;quot;,o:[&amp;quot;48&amp;quot;,&amp;quot;24&amp;quot;,&amp;quot;14&amp;quot;,&amp;quot;28&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;v = 60km/h, t = 3h. s = ?&amp;quot;,o:[&amp;quot;20&amp;quot;,&amp;quot;63&amp;quot;,&amp;quot;180&amp;quot;,&amp;quot;120&amp;quot;],a:2,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;V hình LP cạnh 3cm = ?&amp;quot;,o:[&amp;quot;9&amp;quot;,&amp;quot;18&amp;quot;,&amp;quot;27&amp;quot;,&amp;quot;36&amp;quot;],a:2,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;2h30ph + 1h45ph = ?&amp;quot;,o:[&amp;quot;3h75ph&amp;quot;,&amp;quot;4h15ph&amp;quot;,&amp;quot;3h15ph&amp;quot;,&amp;quot;4h75ph&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;Giảm 30% giá 200k = ?&amp;quot;,o:[&amp;quot;140&amp;quot;,&amp;quot;160&amp;quot;,&amp;quot;170&amp;quot;,&amp;quot;130&amp;quot;],a:0,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;12,5 × 8 = ?&amp;quot;,o:[&amp;quot;96&amp;quot;,&amp;quot;100&amp;quot;,&amp;quot;108&amp;quot;,&amp;quot;90&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;S hình thang đáy 5+7, cao 4 = ?&amp;quot;,o:[&amp;quot;24&amp;quot;,&amp;quot;48&amp;quot;,&amp;quot;20&amp;quot;,&amp;quot;28&amp;quot;],a:0,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;150km ÷ 3h = ? km/h&amp;quot;,o:[&amp;quot;50&amp;quot;,&amp;quot;45&amp;quot;,&amp;quot;450&amp;quot;,&amp;quot;30&amp;quot;],a:0,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;2/3 + 1/6 = ?&amp;quot;,o:[&amp;quot;3/6&amp;quot;,&amp;quot;5/6&amp;quot;,&amp;quot;3/9&amp;quot;,&amp;quot;1/2&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;1 dm³ = ? cm³&amp;quot;,o:[&amp;quot;10&amp;quot;,&amp;quot;100&amp;quot;,&amp;quot;1000&amp;quot;,&amp;quot;10000&amp;quot;],a:2,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;5h20ph − 2h40ph = ?&amp;quot;,o:[&amp;quot;2h40ph&amp;quot;,&amp;quot;3h20ph&amp;quot;,&amp;quot;2h80ph&amp;quot;,&amp;quot;3h40ph&amp;quot;],a:0,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;75% của 80 = ?&amp;quot;,o:[&amp;quot;55&amp;quot;,&amp;quot;60&amp;quot;,&amp;quot;65&amp;quot;,&amp;quot;70&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;CV hình tròn r=7cm (π≈3,14) = ?&amp;quot;,o:[&amp;quot;43,96&amp;quot;,&amp;quot;21,98&amp;quot;,&amp;quot;153,86&amp;quot;,&amp;quot;44&amp;quot;],a:0,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;S hình tròn r=5cm = ?&amp;quot;,o:[&amp;quot;78,5&amp;quot;,&amp;quot;31,4&amp;quot;,&amp;quot;15,7&amp;quot;,&amp;quot;157&amp;quot;],a:0,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;V hình hộp CN 5×3×4 = ?&amp;quot;,o:[&amp;quot;60&amp;quot;,&amp;quot;120&amp;quot;,&amp;quot;30&amp;quot;,&amp;quot;45&amp;quot;],a:0,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;0,25 × 12 = ?&amp;quot;,o:[&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;2,5&amp;quot;,&amp;quot;3,5&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;40 là ?% của 200&amp;quot;,o:[&amp;quot;15%&amp;quot;,&amp;quot;20%&amp;quot;,&amp;quot;25%&amp;quot;,&amp;quot;30%&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;Rút gọn 6/8 = ?&amp;quot;,o:[&amp;quot;3/4&amp;quot;,&amp;quot;2/4&amp;quot;,&amp;quot;3/8&amp;quot;,&amp;quot;6/4&amp;quot;],a:0,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;100 − 45,5 = ?&amp;quot;,o:[&amp;quot;55,5&amp;quot;,&amp;quot;54,5&amp;quot;,&amp;quot;65,5&amp;quot;,&amp;quot;64,5&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;DT xq hình LP cạnh 5cm = ?&amp;quot;,o:[&amp;quot;100&amp;quot;,&amp;quot;150&amp;quot;,&amp;quot;125&amp;quot;,&amp;quot;25&amp;quot;],a:0,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;v=40km/h, s=120km. t = ?&amp;quot;,o:[&amp;quot;80h&amp;quot;,&amp;quot;3h&amp;quot;,&amp;quot;4800h&amp;quot;,&amp;quot;2h&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;So sánh: 2/3 ☐ 3/4&amp;quot;,o:[&amp;quot;&amp;gt;&amp;quot;,&amp;quot;&amp;lt;&amp;quot;,&amp;quot;=&amp;quot;,&amp;quot;Cùng = 1&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;PSTP của 1/4 = ?&amp;quot;,o:[&amp;quot;25/10&amp;quot;,&amp;quot;25/100&amp;quot;,&amp;quot;4/10&amp;quot;,&amp;quot;4/100&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;1,5 giờ = ? phút&amp;quot;,o:[&amp;quot;65&amp;quot;,&amp;quot;80&amp;quot;,&amp;quot;90&amp;quot;,&amp;quot;150&amp;quot;],a:2,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;50 − 12,75 = ?&amp;quot;,o:[&amp;quot;37,25&amp;quot;,&amp;quot;38,25&amp;quot;,&amp;quot;37,75&amp;quot;,&amp;quot;38,75&amp;quot;],a:0,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;15,6 ÷ 4 = ?&amp;quot;,o:[&amp;quot;3,6&amp;quot;,&amp;quot;3,9&amp;quot;,&amp;quot;4,1&amp;quot;,&amp;quot;3,8&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;3ph45s + 2ph30s = ?&amp;quot;,o:[&amp;quot;5ph75s&amp;quot;,&amp;quot;6ph15s&amp;quot;,&amp;quot;5ph15s&amp;quot;,&amp;quot;6ph75s&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;S tam giác vuông cạnh 3,4 = ?&amp;quot;,o:[&amp;quot;12&amp;quot;,&amp;quot;6&amp;quot;,&amp;quot;7&amp;quot;,&amp;quot;14&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;DT toàn phần HH CN 6×4×3 = ?&amp;quot;,o:[&amp;quot;108&amp;quot;,&amp;quot;96&amp;quot;,&amp;quot;84&amp;quot;,&amp;quot;120&amp;quot;],a:0,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;V hình LP cạnh 10cm = ? dm³&amp;quot;,o:[&amp;quot;10&amp;quot;,&amp;quot;1&amp;quot;,&amp;quot;100&amp;quot;,&amp;quot;0,1&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;Xe A: 5km/h, xe B: 80m/ph. Ai nhanh?&amp;quot;,o:[&amp;quot;A&amp;quot;,&amp;quot;B&amp;quot;,&amp;quot;Bằng nhau&amp;quot;,&amp;quot;Không SS&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;S hình thang đáy 8+12, cao 7 = ?&amp;quot;,o:[&amp;quot;140&amp;quot;,&amp;quot;70&amp;quot;,&amp;quot;100&amp;quot;,&amp;quot;56&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;2h30ph × 3 = ?&amp;quot;,o:[&amp;quot;6h90ph&amp;quot;,&amp;quot;7h30ph&amp;quot;,&amp;quot;6h30ph&amp;quot;,&amp;quot;8h&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;Tăng 10% từ 500 = ?&amp;quot;,o:[&amp;quot;510&amp;quot;,&amp;quot;550&amp;quot;,&amp;quot;600&amp;quot;,&amp;quot;505&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;V HH CN 10×5×8 = ? lít&amp;quot;,o:[&amp;quot;0,4&amp;quot;,&amp;quot;4&amp;quot;,&amp;quot;40&amp;quot;,&amp;quot;400&amp;quot;],a:3,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;6h40ph ÷ 2 = ?&amp;quot;,o:[&amp;quot;3h20ph&amp;quot;,&amp;quot;3h40ph&amp;quot;,&amp;quot;3h&amp;quot;,&amp;quot;4h20ph&amp;quot;],a:0,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;Ô tô đi 210km trong 3,5h. v = ?&amp;quot;,o:[&amp;quot;60&amp;quot;,&amp;quot;70&amp;quot;,&amp;quot;50&amp;quot;,&amp;quot;80&amp;quot;],a:0,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;15% của 400 = ?&amp;quot;,o:[&amp;quot;50&amp;quot;,&amp;quot;55&amp;quot;,&amp;quot;60&amp;quot;,&amp;quot;65&amp;quot;],a:2,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;S xq hình hộp CN 10×5×4 = ?&amp;quot;,o:[&amp;quot;120&amp;quot;,&amp;quot;200&amp;quot;,&amp;quot;100&amp;quot;,&amp;quot;150&amp;quot;],a:0,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;Chu vi đáy HH CN 8×3 = ?&amp;quot;,o:[&amp;quot;22&amp;quot;,&amp;quot;24&amp;quot;,&amp;quot;11&amp;quot;,&amp;quot;16&amp;quot;],a:0,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;V hình LP V=64cm³. Cạnh = ?&amp;quot;,o:[&amp;quot;2&amp;quot;,&amp;quot;4&amp;quot;,&amp;quot;8&amp;quot;,&amp;quot;16&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;1 m³ = ? lít&amp;quot;,o:[&amp;quot;10&amp;quot;,&amp;quot;100&amp;quot;,&amp;quot;1000&amp;quot;,&amp;quot;10000&amp;quot;],a:2,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;CV hình tròn d=10cm = ?&amp;quot;,o:[&amp;quot;31,4&amp;quot;,&amp;quot;15,7&amp;quot;,&amp;quot;78,5&amp;quot;,&amp;quot;62,8&amp;quot;],a:0,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;36,9 ÷ 3 = ?&amp;quot;,o:[&amp;quot;12,3&amp;quot;,&amp;quot;11,3&amp;quot;,&amp;quot;13,3&amp;quot;,&amp;quot;12,0&amp;quot;],a:0,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;12ph36s ÷ 3 = ?&amp;quot;,o:[&amp;quot;4ph12s&amp;quot;,&amp;quot;3ph12s&amp;quot;,&amp;quot;4ph36s&amp;quot;,&amp;quot;6ph12s&amp;quot;],a:0,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;DT toàn phần hình LP cạnh 3cm = ?&amp;quot;,o:[&amp;quot;36&amp;quot;,&amp;quot;54&amp;quot;,&amp;quot;27&amp;quot;,&amp;quot;45&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;v=45km/h, t=2h. s = ?&amp;quot;,o:[&amp;quot;47&amp;quot;,&amp;quot;22,5&amp;quot;,&amp;quot;90&amp;quot;,&amp;quot;135&amp;quot;],a:2,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;5/6 − 2/6 = ? (rút gọn)&amp;quot;,o:[&amp;quot;3/6&amp;quot;,&amp;quot;2/6&amp;quot;,&amp;quot;1/2&amp;quot;,&amp;quot;Cả A và C&amp;quot;],a:3,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;S hình tròn r=10cm = ?&amp;quot;,o:[&amp;quot;314&amp;quot;,&amp;quot;628&amp;quot;,&amp;quot;31,4&amp;quot;,&amp;quot;62,8&amp;quot;],a:0,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;s=75km, v=25km/h. t = ?&amp;quot;,o:[&amp;quot;50h&amp;quot;,&amp;quot;3h&amp;quot;,&amp;quot;1875h&amp;quot;,&amp;quot;2h&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;3 phút 20 giây = ? giây&amp;quot;,o:[&amp;quot;200&amp;quot;,&amp;quot;180&amp;quot;,&amp;quot;320&amp;quot;,&amp;quot;80&amp;quot;],a:0,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;Bể cá 40×20×25cm = ? lít&amp;quot;,o:[&amp;quot;2&amp;quot;,&amp;quot;20&amp;quot;,&amp;quot;200&amp;quot;,&amp;quot;2000&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;8h24ph ÷ 4 = ?&amp;quot;,o:[&amp;quot;2h6ph&amp;quot;,&amp;quot;2h24ph&amp;quot;,&amp;quot;4h6ph&amp;quot;,&amp;quot;2h12ph&amp;quot;],a:0,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;Giá gốc 350k, giảm 20%, tăng 10%. Giá cuối?&amp;quot;,o:[&amp;quot;308&amp;quot;,&amp;quot;280&amp;quot;,&amp;quot;315&amp;quot;,&amp;quot;297&amp;quot;],a:0,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;HLP cạnh tăng gấp 2. V tăng mấy lần?&amp;quot;,o:[&amp;quot;2&amp;quot;,&amp;quot;4&amp;quot;,&amp;quot;6&amp;quot;,&amp;quot;8&amp;quot;],a:3,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;2 xe đi ngược chiều: v1=40, v2=60. Gặp sau 2h. Khoảng cách?&amp;quot;,o:[&amp;quot;40&amp;quot;,&amp;quot;100&amp;quot;,&amp;quot;200&amp;quot;,&amp;quot;160&amp;quot;],a:2,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;S toàn phần HH CN 10×5×8 = ?&amp;quot;,o:[&amp;quot;340&amp;quot;,&amp;quot;260&amp;quot;,&amp;quot;170&amp;quot;,&amp;quot;520&amp;quot;],a:0,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Tỉ lệ bản đồ 1:100000. 5cm = ? km&amp;quot;,o:[&amp;quot;0,5&amp;quot;,&amp;quot;5&amp;quot;,&amp;quot;50&amp;quot;,&amp;quot;500&amp;quot;],a:1,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Lãi suất 5%/năm. 10 triệu → 1 năm = ?&amp;quot;,o:[&amp;quot;10,5 tr&amp;quot;,&amp;quot;10,05 tr&amp;quot;,&amp;quot;15 tr&amp;quot;,&amp;quot;11 tr&amp;quot;],a:0,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;HLP cạnh 6cm. Đường chéo mặt ≈ ?&amp;quot;,o:[&amp;quot;6,5&amp;quot;,&amp;quot;7,2&amp;quot;,&amp;quot;8,49&amp;quot;,&amp;quot;9,6&amp;quot;],a:2,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;3 vòi: A=2h, B=3h, C=6h. Cả 3 chảy = ?&amp;quot;,o:[&amp;quot;30ph&amp;quot;,&amp;quot;1h&amp;quot;,&amp;quot;45ph&amp;quot;,&amp;quot;20ph&amp;quot;],a:1,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Xe đi 2/5 quãng đường mất 1h. Cả quãng đường = ?&amp;quot;,o:[&amp;quot;2h&amp;quot;,&amp;quot;2,5h&amp;quot;,&amp;quot;3h&amp;quot;,&amp;quot;4h&amp;quot;],a:1,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;S hình thang − S tam giác cùng h=6, đáy lớn 10, nhỏ 4 = ?&amp;quot;,o:[&amp;quot;30&amp;quot;,&amp;quot;42&amp;quot;,&amp;quot;12&amp;quot;,&amp;quot;18&amp;quot;],a:2,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Lớp 40 HS: 60% nữ. Số nam = ?&amp;quot;,o:[&amp;quot;16&amp;quot;,&amp;quot;20&amp;quot;,&amp;quot;24&amp;quot;,&amp;quot;10&amp;quot;],a:0,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;V hình hộp CN giảm chiều cao 50%. V giảm?&amp;quot;,o:[&amp;quot;25%&amp;quot;,&amp;quot;50%&amp;quot;,&amp;quot;75%&amp;quot;,&amp;quot;100%&amp;quot;],a:1,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Ô tô đi 3/4 quãng đường trong 3h. v=60km/h. Tổng s = ?&amp;quot;,o:[&amp;quot;180&amp;quot;,&amp;quot;240&amp;quot;,&amp;quot;120&amp;quot;,&amp;quot;300&amp;quot;],a:1,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Hình tròn S=154cm². r ≈ ?&amp;quot;,o:[&amp;quot;5&amp;quot;,&amp;quot;7&amp;quot;,&amp;quot;10&amp;quot;,&amp;quot;14&amp;quot;],a:1,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;2 số: tổng 180, tỉ số 2/3. Số lớn = ?&amp;quot;,o:[&amp;quot;72&amp;quot;,&amp;quot;108&amp;quot;,&amp;quot;120&amp;quot;,&amp;quot;90&amp;quot;],a:1,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Giá tăng 20% rồi giảm 20%. So với ban đầu?&amp;quot;,o:[&amp;quot;Bằng&amp;quot;,&amp;quot;Giảm 4%&amp;quot;,&amp;quot;Tăng 4%&amp;quot;,&amp;quot;Giảm 2%&amp;quot;],a:1,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;HLP cạnh a. Tổng độ dài các cạnh = ?&amp;quot;,o:[&amp;quot;6a&amp;quot;,&amp;quot;8a&amp;quot;,&amp;quot;12a&amp;quot;,&amp;quot;4a&amp;quot;],a:2,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Xe A đi trước B 1h. vA=40, vB=60. B đuổi kịp sau?&amp;quot;,o:[&amp;quot;1h&amp;quot;,&amp;quot;2h&amp;quot;,&amp;quot;3h&amp;quot;,&amp;quot;4h&amp;quot;],a:1,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;3 số TB cộng = 45. Bỏ số nhỏ nhất, TB = 54. Số nhỏ = ?&amp;quot;,o:[&amp;quot;18&amp;quot;,&amp;quot;27&amp;quot;,&amp;quot;36&amp;quot;,&amp;quot;9&amp;quot;],a:1,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Bán kính tăng gấp 3. S hình tròn tăng?&amp;quot;,o:[&amp;quot;3 lần&amp;quot;,&amp;quot;6 lần&amp;quot;,&amp;quot;9 lần&amp;quot;,&amp;quot;12 lần&amp;quot;],a:2,d:&amp;quot;master&amp;quot;},
+];
+
+var TV=[
+  {q:&amp;quot;Từ đồng nghĩa với \&amp;quot;xinh đẹp\&amp;quot;?&amp;quot;,o:[&amp;quot;xấu xí&amp;quot;,&amp;quot;xinh xắn&amp;quot;,&amp;quot;to lớn&amp;quot;,&amp;quot;buồn bã&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;Từ trái nghĩa với \&amp;quot;cao\&amp;quot;?&amp;quot;,o:[&amp;quot;to&amp;quot;,&amp;quot;thấp&amp;quot;,&amp;quot;lớn&amp;quot;,&amp;quot;dài&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;Câu ghép có mấy cụm C-V?&amp;quot;,o:[&amp;quot;1&amp;quot;,&amp;quot;2 trở lên&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;Không có&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Nhanh\&amp;quot; đồng nghĩa với?&amp;quot;,o:[&amp;quot;chậm&amp;quot;,&amp;quot;mau&amp;quot;,&amp;quot;to&amp;quot;,&amp;quot;nhỏ&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;Từ trái nghĩa \&amp;quot;siêng năng\&amp;quot;?&amp;quot;,o:[&amp;quot;chăm chỉ&amp;quot;,&amp;quot;cần cù&amp;quot;,&amp;quot;lười biếng&amp;quot;,&amp;quot;giỏi&amp;quot;],a:2,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;Viết đúng chính tả?&amp;quot;,o:[&amp;quot;lồi cơm&amp;quot;,&amp;quot;nồi cơm&amp;quot;,&amp;quot;lồi com&amp;quot;,&amp;quot;nồi com&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;Từ nào chỉ tính cách?&amp;quot;,o:[&amp;quot;cao gầy&amp;quot;,&amp;quot;trắng trẻo&amp;quot;,&amp;quot;nhân hậu&amp;quot;,&amp;quot;tóc dài&amp;quot;],a:2,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Bao la\&amp;quot; đồng nghĩa?&amp;quot;,o:[&amp;quot;nhỏ bé&amp;quot;,&amp;quot;chật hẹp&amp;quot;,&amp;quot;mênh mông&amp;quot;,&amp;quot;ngắn&amp;quot;],a:2,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;Viết đúng: trăng...?&amp;quot;,o:[&amp;quot;chòn&amp;quot;,&amp;quot;tròn&amp;quot;,&amp;quot;chon&amp;quot;,&amp;quot;tron&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;Từ trái nghĩa \&amp;quot;nóng\&amp;quot;?&amp;quot;,o:[&amp;quot;ấm&amp;quot;,&amp;quot;mát&amp;quot;,&amp;quot;lạnh&amp;quot;,&amp;quot;nóng&amp;quot;],a:2,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Gan dạ\&amp;quot; đồng nghĩa?&amp;quot;,o:[&amp;quot;nhút nhát&amp;quot;,&amp;quot;dũng cảm&amp;quot;,&amp;quot;vui vẻ&amp;quot;,&amp;quot;hiền&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;Viết đúng: sáng hay xáng?&amp;quot;,o:[&amp;quot;sáng sớm&amp;quot;,&amp;quot;xáng xớm&amp;quot;,&amp;quot;xáng sớm&amp;quot;,&amp;quot;sáng xớm&amp;quot;],a:0,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;Từ nào chỉ ngoại hình?&amp;quot;,o:[&amp;quot;hiền lành&amp;quot;,&amp;quot;mảnh khảnh&amp;quot;,&amp;quot;chăm chỉ&amp;quot;,&amp;quot;vui&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;Trái nghĩa \&amp;quot;đoàn kết\&amp;quot;?&amp;quot;,o:[&amp;quot;gắn bó&amp;quot;,&amp;quot;chia rẽ&amp;quot;,&amp;quot;yêu thương&amp;quot;,&amp;quot;giúp đỡ&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Chăm chỉ\&amp;quot; đồng nghĩa?&amp;quot;,o:[&amp;quot;lười&amp;quot;,&amp;quot;siêng năng&amp;quot;,&amp;quot;cẩu thả&amp;quot;,&amp;quot;nóng nảy&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;Viết đúng: xinh...?&amp;quot;,o:[&amp;quot;sinh sắn&amp;quot;,&amp;quot;xinh xắn&amp;quot;,&amp;quot;xinh sắn&amp;quot;,&amp;quot;sinh xắn&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;Trái nghĩa \&amp;quot;tiết kiệm\&amp;quot;?&amp;quot;,o:[&amp;quot;dè sẻn&amp;quot;,&amp;quot;lãng phí&amp;quot;,&amp;quot;chắt chiu&amp;quot;,&amp;quot;cẩn thận&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Thông minh\&amp;quot; đồng nghĩa?&amp;quot;,o:[&amp;quot;sáng dạ&amp;quot;,&amp;quot;chậm hiểu&amp;quot;,&amp;quot;ngốc&amp;quot;,&amp;quot;lười&amp;quot;],a:0,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;Viết đúng: lung...?&amp;quot;,o:[&amp;quot;lung linh&amp;quot;,&amp;quot;nung ninh&amp;quot;,&amp;quot;lung ninh&amp;quot;,&amp;quot;nung linh&amp;quot;],a:0,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;Trái nghĩa \&amp;quot;trung thực\&amp;quot;?&amp;quot;,o:[&amp;quot;thật thà&amp;quot;,&amp;quot;gian dối&amp;quot;,&amp;quot;ngay thẳng&amp;quot;,&amp;quot;chân thật&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Vui vẻ\&amp;quot; đồng nghĩa?&amp;quot;,o:[&amp;quot;buồn&amp;quot;,&amp;quot;hân hoan&amp;quot;,&amp;quot;giận dữ&amp;quot;,&amp;quot;lo lắng&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;Viết đúng: chăm...?&amp;quot;,o:[&amp;quot;trăm trỉ&amp;quot;,&amp;quot;chăm chỉ&amp;quot;,&amp;quot;chăm trỉ&amp;quot;,&amp;quot;trăm chỉ&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;Trái nghĩa \&amp;quot;cẩn thận\&amp;quot;?&amp;quot;,o:[&amp;quot;tỉ mỉ&amp;quot;,&amp;quot;chu đáo&amp;quot;,&amp;quot;cẩu thả&amp;quot;,&amp;quot;kỹ lưỡng&amp;quot;],a:2,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Giúp đỡ\&amp;quot; đồng nghĩa?&amp;quot;,o:[&amp;quot;cản trở&amp;quot;,&amp;quot;hỗ trợ&amp;quot;,&amp;quot;phá hoại&amp;quot;,&amp;quot;bỏ mặc&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;Viết đúng: nô...?&amp;quot;,o:[&amp;quot;lô lức&amp;quot;,&amp;quot;nô nức&amp;quot;,&amp;quot;nô lức&amp;quot;,&amp;quot;lô nức&amp;quot;],a:1,d:&amp;quot;easy&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Vì...nên\&amp;quot; thể hiện quan hệ gì?&amp;quot;,o:[&amp;quot;Tương phản&amp;quot;,&amp;quot;Nguyên nhân–kết quả&amp;quot;,&amp;quot;Bổ sung&amp;quot;,&amp;quot;Điều kiện&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;Đâu là câu ghép?&amp;quot;,o:[&amp;quot;Trời mưa to.&amp;quot;,&amp;quot;Hoa nở đẹp.&amp;quot;,&amp;quot;Trời mưa nhưng em đi học.&amp;quot;,&amp;quot;Em chăm chỉ.&amp;quot;],a:2,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Tuy...nhưng\&amp;quot; thể hiện quan hệ?&amp;quot;,o:[&amp;quot;Nguyên nhân&amp;quot;,&amp;quot;Tương phản&amp;quot;,&amp;quot;Bổ sung&amp;quot;,&amp;quot;Điều kiện&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Chân bàn\&amp;quot; – nghĩa gì?&amp;quot;,o:[&amp;quot;Nghĩa gốc&amp;quot;,&amp;quot;Nghĩa chuyển&amp;quot;,&amp;quot;Không phải&amp;quot;,&amp;quot;Cả A &amp;amp; B&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;Phép thế là gì?&amp;quot;,o:[&amp;quot;Lặp từ&amp;quot;,&amp;quot;Dùng từ khác thay thế&amp;quot;,&amp;quot;Bỏ từ&amp;quot;,&amp;quot;Thêm câu&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Lan chăm. Bạn ấy điểm cao.\&amp;quot; – Bạn ấy thay?&amp;quot;,o:[&amp;quot;Cô giáo&amp;quot;,&amp;quot;Lan&amp;quot;,&amp;quot;Điểm&amp;quot;,&amp;quot;Chăm&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;Dấu gạch ngang dùng để?&amp;quot;,o:[&amp;quot;Nối tiếng&amp;quot;,&amp;quot;Đánh dấu lời nói, chú thích&amp;quot;,&amp;quot;Kết thúc&amp;quot;,&amp;quot;Hỏi&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;Điền từ: Trời mưa ___ em vẫn đi học&amp;quot;,o:[&amp;quot;vì vậy&amp;quot;,&amp;quot;ngoài ra&amp;quot;,&amp;quot;nhưng&amp;quot;,&amp;quot;hơn nữa&amp;quot;],a:2,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Bác\&amp;quot; trong \&amp;quot;Bác Hồ\&amp;quot; viết hoa vì?&amp;quot;,o:[&amp;quot;Đầu câu&amp;quot;,&amp;quot;Tên người&amp;quot;,&amp;quot;Tôn kính&amp;quot;,&amp;quot;Tên địa lí&amp;quot;],a:2,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;Bài văn tả phong cảnh gồm mấy phần?&amp;quot;,o:[&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;4&amp;quot;,&amp;quot;5&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Dòng sông hiền hòa như dải lụa.\&amp;quot; – Biện pháp?&amp;quot;,o:[&amp;quot;Nhân hóa&amp;quot;,&amp;quot;So sánh&amp;quot;,&amp;quot;Điệp ngữ&amp;quot;,&amp;quot;Liệt kê&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Ngoài ra\&amp;quot; dùng để?&amp;quot;,o:[&amp;quot;Phản bác&amp;quot;,&amp;quot;Bổ sung thêm ý&amp;quot;,&amp;quot;Kết thúc&amp;quot;,&amp;quot;Hỏi&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;Tên người nước ngoài phiên âm viết hoa?&amp;quot;,o:[&amp;quot;Không viết hoa&amp;quot;,&amp;quot;Chữ cái đầu mỗi bộ phận&amp;quot;,&amp;quot;Tất cả&amp;quot;,&amp;quot;Chữ cuối&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;Phép lặp là?&amp;quot;,o:[&amp;quot;Dùng từ mới&amp;quot;,&amp;quot;Lặp lại từ đã dùng câu trước&amp;quot;,&amp;quot;Bỏ từ&amp;quot;,&amp;quot;Thêm dấu&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Vì vậy\&amp;quot; dùng khi?&amp;quot;,o:[&amp;quot;Tương phản&amp;quot;,&amp;quot;Nguyên nhân–kết quả&amp;quot;,&amp;quot;Bổ sung&amp;quot;,&amp;quot;Điều kiện&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;Viết đúng tên: lu-i pa-xtơ?&amp;quot;,o:[&amp;quot;Lu-i Pa-xtơ&amp;quot;,&amp;quot;lu-i pa-xtơ&amp;quot;,&amp;quot;LU-I PA-XTƠ&amp;quot;,&amp;quot;Lu-I Pa-Xtơ&amp;quot;],a:0,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Hà Nội đẹp. Thủ đô nhộn nhịp.\&amp;quot; – Phép gì?&amp;quot;,o:[&amp;quot;Lặp&amp;quot;,&amp;quot;Thế&amp;quot;,&amp;quot;Nối&amp;quot;,&amp;quot;Không liên kết&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;Câu cảm thán dùng dấu gì?&amp;quot;,o:[&amp;quot;Dấu chấm&amp;quot;,&amp;quot;Dấu hỏi&amp;quot;,&amp;quot;Dấu chấm than&amp;quot;,&amp;quot;Dấu phẩy&amp;quot;],a:2,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;Khi tả phong cảnh, tả theo?&amp;quot;,o:[&amp;quot;Ngẫu nhiên&amp;quot;,&amp;quot;Thời gian hoặc không gian&amp;quot;,&amp;quot;Chỉ 1 thứ&amp;quot;,&amp;quot;Từ Z đến A&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Mặt khác\&amp;quot; dùng để?&amp;quot;,o:[&amp;quot;Nguyên nhân&amp;quot;,&amp;quot;Nêu thêm khía cạnh khác&amp;quot;,&amp;quot;Kết luận&amp;quot;,&amp;quot;Phản bác&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;Dấu gạch nối dùng ở đâu?&amp;quot;,o:[&amp;quot;Lời nói&amp;quot;,&amp;quot;Phiên âm tên nước ngoài&amp;quot;,&amp;quot;Chú thích&amp;quot;,&amp;quot;Liệt kê&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Không chỉ...mà còn\&amp;quot; thể hiện?&amp;quot;,o:[&amp;quot;Tương phản&amp;quot;,&amp;quot;Nguyên nhân&amp;quot;,&amp;quot;Bổ sung&amp;quot;,&amp;quot;Điều kiện&amp;quot;],a:2,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;Từ nhiều nghĩa: \&amp;quot;mắt\&amp;quot; (gốc) = ?&amp;quot;,o:[&amp;quot;Lỗ trên dứa&amp;quot;,&amp;quot;Bộ phận để nhìn&amp;quot;,&amp;quot;Mắt lưới&amp;quot;,&amp;quot;Mắt xích&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;Đoạn văn phản đối cần có?&amp;quot;,o:[&amp;quot;Chỉ cảm xúc&amp;quot;,&amp;quot;Ý kiến + lí lẽ + dẫn chứng&amp;quot;,&amp;quot;Chỉ kể&amp;quot;,&amp;quot;Chỉ số liệu&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Do đó\&amp;quot; giống từ nào?&amp;quot;,o:[&amp;quot;Tuy nhiên&amp;quot;,&amp;quot;Vì vậy&amp;quot;,&amp;quot;Ngoài ra&amp;quot;,&amp;quot;Mặt khác&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;Báo cáo công việc cần gì?&amp;quot;,o:[&amp;quot;Chỉ tên&amp;quot;,&amp;quot;Thời gian, nội dung, kết quả&amp;quot;,&amp;quot;Chỉ kết quả&amp;quot;,&amp;quot;Viết thơ&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Quốc Khánh\&amp;quot; viết hoa vì?&amp;quot;,o:[&amp;quot;Đầu câu&amp;quot;,&amp;quot;Tên thường&amp;quot;,&amp;quot;Tên riêng ngày lễ đặc biệt&amp;quot;,&amp;quot;Tên người&amp;quot;],a:2,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;3 phép liên kết câu đã học?&amp;quot;,o:[&amp;quot;Lặp, thế, nối&amp;quot;,&amp;quot;Lặp, bỏ, thêm&amp;quot;,&amp;quot;Nối, hỏi, đáp&amp;quot;,&amp;quot;Thế, xóa, viết&amp;quot;],a:0,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;Kết bài văn tả phong cảnh thường?&amp;quot;,o:[&amp;quot;Tả thêm&amp;quot;,&amp;quot;Nêu cảm nghĩ, tình cảm&amp;quot;,&amp;quot;Kể chuyện&amp;quot;,&amp;quot;Liệt kê&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;Phần kết đoạn văn phản đối nên?&amp;quot;,o:[&amp;quot;Thêm vấn đề&amp;quot;,&amp;quot;Khẳng định lại, đề xuất&amp;quot;,&amp;quot;Kể chuyện&amp;quot;,&amp;quot;Bỏ trống&amp;quot;],a:1,d:&amp;quot;medium&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Biển rất rộng. Biển xanh ngắt.\&amp;quot; – Từ lặp?&amp;quot;,o:[&amp;quot;rộng&amp;quot;,&amp;quot;xanh&amp;quot;,&amp;quot;Biển&amp;quot;,&amp;quot;ngắt&amp;quot;],a:2,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Mẹ trìu mến nhìn con.\&amp;quot; – Từ nào thể hiện tình cảm?&amp;quot;,o:[&amp;quot;nhìn&amp;quot;,&amp;quot;ngắm&amp;quot;,&amp;quot;trìu mến&amp;quot;,&amp;quot;xem&amp;quot;],a:2,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Cây bàng đẹp. Loài cây này cho mát.\&amp;quot; – Loài cây này thay?&amp;quot;,o:[&amp;quot;Mát&amp;quot;,&amp;quot;Cây bàng&amp;quot;,&amp;quot;Đẹp&amp;quot;,&amp;quot;Cho&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;Ô-xtrây-li-a viết hoa đúng?&amp;quot;,o:[&amp;quot;ô-xtrây-li-a&amp;quot;,&amp;quot;Ô-xtrây-li-a&amp;quot;,&amp;quot;Ô-Xtrây-Li-A&amp;quot;,&amp;quot;Ô XTRÂY LI A&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Bác Hồ – vị lãnh tụ kính yêu – sống giản dị.\&amp;quot; Dấu gạch ngang dùng?&amp;quot;,o:[&amp;quot;Nối tiếng&amp;quot;,&amp;quot;Đánh dấu phần chú thích&amp;quot;,&amp;quot;Liệt kê&amp;quot;,&amp;quot;Lời nói&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Sở dĩ em điểm cao ___ em chăm\&amp;quot;&amp;quot;,o:[&amp;quot;nhưng&amp;quot;,&amp;quot;là vì&amp;quot;,&amp;quot;ngoài ra&amp;quot;,&amp;quot;hơn nữa&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;Phép nối khác phép lặp, thế ở chỗ?&amp;quot;,o:[&amp;quot;Dùng từ nối liên kết 2 câu&amp;quot;,&amp;quot;Giống nhau&amp;quot;,&amp;quot;Ngắn hơn&amp;quot;,&amp;quot;Dài hơn&amp;quot;],a:0,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Nhờ luyện tập ___ bạn tiến bộ\&amp;quot;&amp;quot;,o:[&amp;quot;nhưng&amp;quot;,&amp;quot;tuy nhiên&amp;quot;,&amp;quot;mà&amp;quot;,&amp;quot;vì vậy&amp;quot;],a:2,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;Câu nào tả phong cảnh hay nhất?&amp;quot;,o:[&amp;quot;Cánh đồng rộng.&amp;quot;,&amp;quot;Cánh đồng bát ngát trải dài tít tắp.&amp;quot;,&amp;quot;Có cánh đồng.&amp;quot;,&amp;quot;Đồng to.&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Mặc dù khó ___ anh vẫn cố\&amp;quot;&amp;quot;,o:[&amp;quot;vì vậy&amp;quot;,&amp;quot;nhưng&amp;quot;,&amp;quot;nên&amp;quot;,&amp;quot;ngoài ra&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Người\&amp;quot; trong \&amp;quot;Người đã dạy ta\&amp;quot; (chỉ Bác Hồ) viết hoa vì?&amp;quot;,o:[&amp;quot;Đầu câu&amp;quot;,&amp;quot;Nổi tiếng&amp;quot;,&amp;quot;Tôn kính&amp;quot;,&amp;quot;Tên riêng&amp;quot;],a:2,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;Lặp từ quá nhiều sẽ?&amp;quot;,o:[&amp;quot;Hay hơn&amp;quot;,&amp;quot;Nhàm chán, lặp lại&amp;quot;,&amp;quot;Ngắn hơn&amp;quot;,&amp;quot;Dễ hiểu&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Ôi! Quê hương đẹp biết bao!\&amp;quot; – Kiểu câu?&amp;quot;,o:[&amp;quot;Câu hỏi&amp;quot;,&amp;quot;Câu kể&amp;quot;,&amp;quot;Câu cảm thán&amp;quot;,&amp;quot;Câu cầu khiến&amp;quot;],a:2,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;Kể chuyện sáng tạo cần giữ gì từ truyện gốc?&amp;quot;,o:[&amp;quot;Không giữ gì&amp;quot;,&amp;quot;Ý chính, bài học&amp;quot;,&amp;quot;Chỉ tên&amp;quot;,&amp;quot;Chỉ kết thúc&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;An-đéc-xen viết đúng?&amp;quot;,o:[&amp;quot;an-đéc-xen&amp;quot;,&amp;quot;An-Đéc-Xen&amp;quot;,&amp;quot;An-đéc-xen&amp;quot;,&amp;quot;AN-ĐÉC-XEN&amp;quot;],a:2,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Em chăm. ___ em điểm cao.\&amp;quot; Điền từ nối?&amp;quot;,o:[&amp;quot;Tuy nhiên&amp;quot;,&amp;quot;Vì vậy&amp;quot;,&amp;quot;Mặt khác&amp;quot;,&amp;quot;Ngoài ra&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;Chương trình hoạt động khác báo cáo ở chỗ?&amp;quot;,o:[&amp;quot;Giống nhau&amp;quot;,&amp;quot;CT là kế hoạch, BC là kết quả đã làm&amp;quot;,&amp;quot;CT ngắn hơn&amp;quot;,&amp;quot;BC dài hơn&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;Đoạn văn thiếu liên kết sẽ?&amp;quot;,o:[&amp;quot;Rõ ràng&amp;quot;,&amp;quot;Rời rạc, khó hiểu&amp;quot;,&amp;quot;Hay hơn&amp;quot;,&amp;quot;Ngắn hơn&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Tổ Quốc\&amp;quot; viết hoa vì?&amp;quot;,o:[&amp;quot;Đầu câu&amp;quot;,&amp;quot;Tên riêng&amp;quot;,&amp;quot;Nghĩa tôn kính, trang trọng&amp;quot;,&amp;quot;Tên người&amp;quot;],a:2,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Mèo nằm sưởi nắng. Nó lim dim mắt.\&amp;quot; – Nó thay?&amp;quot;,o:[&amp;quot;Nắng&amp;quot;,&amp;quot;Mắt&amp;quot;,&amp;quot;Con mèo&amp;quot;,&amp;quot;Sưởi&amp;quot;],a:2,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;Giữa các tiếng tên phiên âm dùng dấu gì?&amp;quot;,o:[&amp;quot;Chấm&amp;quot;,&amp;quot;Phẩy&amp;quot;,&amp;quot;Gạch nối&amp;quot;,&amp;quot;Gạch ngang&amp;quot;],a:2,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;Khi phản đối, giọng văn nên?&amp;quot;,o:[&amp;quot;Tức giận&amp;quot;,&amp;quot;Lịch sự, thuyết phục&amp;quot;,&amp;quot;Dài dòng&amp;quot;,&amp;quot;Buồn&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;Bố cục rõ ràng nghĩa là?&amp;quot;,o:[&amp;quot;Viết 1 câu&amp;quot;,&amp;quot;Có mở, phát triển, kết&amp;quot;,&amp;quot;Viết dài&amp;quot;,&amp;quot;Không xuống dòng&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Càng học ___ càng giỏi\&amp;quot; điền?&amp;quot;,o:[&amp;quot;thì&amp;quot;,&amp;quot;nhưng&amp;quot;,&amp;quot;vì vậy&amp;quot;,&amp;quot;ngoài ra&amp;quot;],a:0,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;Lỗi dùng từ là?&amp;quot;,o:[&amp;quot;Viết sai chính tả&amp;quot;,&amp;quot;Dùng từ không phù hợp nghĩa&amp;quot;,&amp;quot;Viết hoa sai&amp;quot;,&amp;quot;Thiếu dấu&amp;quot;],a:1,d:&amp;quot;hard&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Con sông quê hiền hòa, ôm lấy xóm làng.\&amp;quot; – Mấy biện pháp tu từ?&amp;quot;,o:[&amp;quot;0&amp;quot;,&amp;quot;1 (nhân hóa)&amp;quot;,&amp;quot;2 (nhân hóa + ẩn dụ)&amp;quot;,&amp;quot;3&amp;quot;],a:2,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Tre giữ làng, giữ nước, giữ mái nhà tranh.\&amp;quot; – Biện pháp?&amp;quot;,o:[&amp;quot;So sánh&amp;quot;,&amp;quot;Nhân hóa + điệp ngữ&amp;quot;,&amp;quot;Liệt kê&amp;quot;,&amp;quot;Ẩn dụ&amp;quot;],a:1,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Viết đoạn văn 5 câu cần ít nhất mấy phép liên kết?&amp;quot;,o:[&amp;quot;0&amp;quot;,&amp;quot;1&amp;quot;,&amp;quot;2-3&amp;quot;,&amp;quot;5&amp;quot;],a:2,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Trong câu ghép \&amp;quot;Gió thổi, mây bay, chim hót.\&amp;quot; có mấy vế?&amp;quot;,o:[&amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;4&amp;quot;],a:2,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Nếu...thì\&amp;quot; + \&amp;quot;Tuy...nhưng\&amp;quot; kết hợp = quan hệ gì?&amp;quot;,o:[&amp;quot;Chỉ điều kiện&amp;quot;,&amp;quot;Chỉ tương phản&amp;quot;,&amp;quot;Điều kiện kèm tương phản&amp;quot;,&amp;quot;Bổ sung&amp;quot;],a:2,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Mắt\&amp;quot; có bao nhiêu nghĩa chuyển phổ biến?&amp;quot;,o:[&amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;3 trở lên&amp;quot;,&amp;quot;Không có&amp;quot;],a:2,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Thay thế đại từ sai gây lỗi gì?&amp;quot;,o:[&amp;quot;Lỗi chính tả&amp;quot;,&amp;quot;Lỗi mơ hồ, hiểu sai&amp;quot;,&amp;quot;Lỗi dấu câu&amp;quot;,&amp;quot;Lỗi viết hoa&amp;quot;],a:1,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Đoạn văn nghị luận cần: Luận điểm + ? + Dẫn chứng&amp;quot;,o:[&amp;quot;Kể chuyện&amp;quot;,&amp;quot;Lí lẽ&amp;quot;,&amp;quot;Tả cảnh&amp;quot;,&amp;quot;Hỏi&amp;quot;],a:1,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Đất nước ta đẹp. Non sông gấm vóc.\&amp;quot; Dùng 2 phép liên kết?&amp;quot;,o:[&amp;quot;Lặp + nối&amp;quot;,&amp;quot;Thế + so sánh&amp;quot;,&amp;quot;Thế (thay đồng nghĩa)&amp;quot;,&amp;quot;Nối + lặp&amp;quot;],a:2,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Sắp xếp: (1)Kết (2)Mở (3)Thân. Đúng?&amp;quot;,o:[&amp;quot;1-2-3&amp;quot;,&amp;quot;2-3-1&amp;quot;,&amp;quot;3-1-2&amp;quot;,&amp;quot;2-1-3&amp;quot;],a:1,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Em không đồng ý vì...\&amp;quot; thuộc kiểu đoạn văn?&amp;quot;,o:[&amp;quot;Tả&amp;quot;,&amp;quot;Kể&amp;quot;,&amp;quot;Nêu ý kiến phản đối&amp;quot;,&amp;quot;Biểu cảm&amp;quot;],a:2,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Viết hoa \&amp;quot;Ngày Giải Phóng\&amp;quot; thuộc quy tắc?&amp;quot;,o:[&amp;quot;Tên người&amp;quot;,&amp;quot;Tên địa lí&amp;quot;,&amp;quot;Tên ngày lễ đặc biệt&amp;quot;,&amp;quot;Đầu câu&amp;quot;],a:2,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Trẻ em hôm nay, thế giới ngày mai.\&amp;quot; – Câu này dùng biện pháp?&amp;quot;,o:[&amp;quot;So sánh&amp;quot;,&amp;quot;Hoán dụ&amp;quot;,&amp;quot;Ẩn dụ&amp;quot;,&amp;quot;Đối&amp;quot;],a:3,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Phân biệt: \&amp;quot;ăn cơm\&amp;quot; (gốc) vs \&amp;quot;máy ăn điện\&amp;quot; (chuyển). Nghĩa chuyển theo cách?&amp;quot;,o:[&amp;quot;So sánh&amp;quot;,&amp;quot;Nhân hóa&amp;quot;,&amp;quot;Ẩn dụ&amp;quot;,&amp;quot;Hoán dụ&amp;quot;],a:2,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Câu \&amp;quot;Ai cũng biết Bác Hồ.\&amp;quot; – Đại từ \&amp;quot;Ai\&amp;quot; đóng vai?&amp;quot;,o:[&amp;quot;Chủ ngữ&amp;quot;,&amp;quot;Vị ngữ&amp;quot;,&amp;quot;Trạng ngữ&amp;quot;,&amp;quot;Bổ ngữ&amp;quot;],a:0,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Liên kết câu bằng phép thế có ưu điểm gì hơn phép lặp?&amp;quot;,o:[&amp;quot;Ngắn hơn&amp;quot;,&amp;quot;Tránh nhàm, phong phú hơn&amp;quot;,&amp;quot;Dễ hơn&amp;quot;,&amp;quot;Không khác&amp;quot;],a:1,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Sống giản dị\&amp;quot; thuộc từ loại?&amp;quot;,o:[&amp;quot;Danh từ&amp;quot;,&amp;quot;Động từ&amp;quot;,&amp;quot;Tính từ&amp;quot;,&amp;quot;Cụm tính từ&amp;quot;],a:3,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Văn tả người: tả hoạt động giúp bài văn?&amp;quot;,o:[&amp;quot;Dài hơn&amp;quot;,&amp;quot;Sinh động, thể hiện tính cách&amp;quot;,&amp;quot;Khó hiểu&amp;quot;,&amp;quot;Phức tạp&amp;quot;],a:1,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;\&amp;quot;Biển xanh, trời xanh, xanh tận chân trời.\&amp;quot; – Phép tu từ?&amp;quot;,o:[&amp;quot;So sánh&amp;quot;,&amp;quot;Điệp ngữ + liệt kê&amp;quot;,&amp;quot;Nhân hóa&amp;quot;,&amp;quot;Ẩn dụ&amp;quot;],a:1,d:&amp;quot;master&amp;quot;},
+  {q:&amp;quot;Khi chỉnh sửa bài, tiêu chí quan trọng nhất?&amp;quot;,o:[&amp;quot;Chữ đẹp&amp;quot;,&amp;quot;Nội dung đúng đề, diễn đạt mạch lạc&amp;quot;,&amp;quot;Độ dài&amp;quot;,&amp;quot;Số trang&amp;quot;],a:1,d:&amp;quot;master&amp;quot;},
+];
+
+
+var LEVELS={easy:{name:&amp;#x27;Trạng cỏ&amp;#x27;,cls:&amp;#x27;l-easy&amp;#x27;,time:20,pts:10},medium:{name:&amp;#x27;Trạng bạc&amp;#x27;,cls:&amp;#x27;l-med&amp;#x27;,time:15,pts:15},hard:{name:&amp;#x27;Trạng vàng&amp;#x27;,cls:&amp;#x27;l-hard&amp;#x27;,time:12,pts:20},master:{name:&amp;#x27;Trạng nguyên&amp;#x27;,cls:&amp;#x27;l-master&amp;#x27;,time:10,pts:30}};
+var cfg={},st={},tmrI;
+
+function startGame(){
+  var level=document.getElementById(&amp;#x27;level&amp;#x27;).value;
+  var name=document.getElementById(&amp;#x27;playerName&amp;#x27;).value.trim()||&amp;#x27;Thí sinh&amp;#x27;;
+  var pool=selectedSubject===&amp;#x27;toan&amp;#x27;?TOAN:TV;
+  var qs;
+  if(level===&amp;#x27;all&amp;#x27;){
+    var e=shuffle(pool.filter(function(q){return q.d===&amp;#x27;easy&amp;#x27;})).slice(0,5);
+    var m=shuffle(pool.filter(function(q){return q.d===&amp;#x27;medium&amp;#x27;})).slice(0,7);
+    var h=shuffle(pool.filter(function(q){return q.d===&amp;#x27;hard&amp;#x27;})).slice(0,5);
+    var x=shuffle(pool.filter(function(q){return q.d===&amp;#x27;master&amp;#x27;})).slice(0,3);
+    qs=e.concat(m).concat(h).concat(x);
+  }else{
+    qs=shuffle(pool.filter(function(q){return q.d===level}));
+    if(level===&amp;#x27;master&amp;#x27;)qs=qs.slice(0,10);else qs=qs.slice(0,15);
+  }
+  cfg={questions:qs,total:qs.length,name:name,subject:selectedSubject===&amp;#x27;toan&amp;#x27;?&amp;#x27;Toán&amp;#x27;:&amp;#x27;Tiếng Việt&amp;#x27;};
+  st={qIdx:0,score:0,correct:0,streak:0,maxStreak:0,ans:false};
+  document.getElementById(&amp;#x27;setup&amp;#x27;).classList.add(&amp;#x27;hidden&amp;#x27;);
+  document.getElementById(&amp;#x27;gameArea&amp;#x27;).classList.remove(&amp;#x27;hidden&amp;#x27;);
+  document.getElementById(&amp;#x27;qT&amp;#x27;).textContent=cfg.total;
+  document.getElementById(&amp;#x27;lTag&amp;#x27;).textContent=cfg.subject;
+  playTone(440,.1,&amp;#x27;sine&amp;#x27;,.15);setTimeout(function(){playTone(554,.1,&amp;#x27;sine&amp;#x27;,.15)},100);setTimeout(function(){playTone(659,.15,&amp;#x27;sine&amp;#x27;,.15)},200);
+  showQ();
+}
+
+function showQ(){
+  if(st.qIdx&amp;gt;=cfg.total){showRes();return}
+  st.ans=false;var q=cfg.questions[st.qIdx];var lv=LEVELS[q.d];
+  document.getElementById(&amp;#x27;qN&amp;#x27;).textContent=st.qIdx+1;
+  document.getElementById(&amp;#x27;qNum&amp;#x27;).textContent=&amp;#x27;Câu &amp;#x27;+(st.qIdx+1)+&amp;#x27;/&amp;#x27;+cfg.total;
+  document.getElementById(&amp;#x27;qDiff&amp;#x27;).textContent=lv.name;
+  document.getElementById(&amp;#x27;qDiff&amp;#x27;).className=&amp;#x27;q-diff &amp;#x27;+lv.cls;
+  document.getElementById(&amp;#x27;qText&amp;#x27;).textContent=q.q;
+  document.getElementById(&amp;#x27;fb&amp;#x27;).textContent=&amp;#x27;&amp;#x27;;document.getElementById(&amp;#x27;fb&amp;#x27;).className=&amp;#x27;fb&amp;#x27;;
+  document.getElementById(&amp;#x27;streakEl&amp;#x27;).textContent=st.streak&amp;gt;1?&amp;#x27;🔥 Chuỗi &amp;#x27;+st.streak+&amp;#x27; câu đúng!&amp;#x27;:&amp;#x27;&amp;#x27;;
+  document.getElementById(&amp;#x27;qC&amp;#x27;).className=&amp;#x27;q-card&amp;#x27;;
+  document.getElementById(&amp;#x27;btnN&amp;#x27;).classList.add(&amp;#x27;hidden&amp;#x27;);
+  document.getElementById(&amp;#x27;pbar&amp;#x27;).style.width=(st.qIdx/cfg.total*100)+&amp;#x27;%&amp;#x27;;
+  // Highlight current level
+  [&amp;#x27;easy&amp;#x27;,&amp;#x27;med&amp;#x27;,&amp;#x27;hard&amp;#x27;,&amp;#x27;master&amp;#x27;].forEach(function(l){document.getElementById(&amp;#x27;lb-&amp;#x27;+l).classList.remove(&amp;#x27;active&amp;#x27;)});
+  var lbMap={easy:&amp;#x27;easy&amp;#x27;,medium:&amp;#x27;med&amp;#x27;,hard:&amp;#x27;hard&amp;#x27;,master:&amp;#x27;master&amp;#x27;};
+  document.getElementById(&amp;#x27;lb-&amp;#x27;+lbMap[q.d]).classList.add(&amp;#x27;active&amp;#x27;);
+  var lb=[&amp;#x27;A&amp;#x27;,&amp;#x27;B&amp;#x27;,&amp;#x27;C&amp;#x27;,&amp;#x27;D&amp;#x27;];
+  document.getElementById(&amp;#x27;optsD&amp;#x27;).innerHTML=q.o.map(function(o,i){return &amp;#x27;&amp;lt;div class=&amp;quot;opt&amp;quot; onclick=&amp;quot;ans(&amp;#x27;+i+&amp;#x27;)&amp;quot; id=&amp;quot;o&amp;#x27;+i+&amp;#x27;&amp;quot;&amp;gt;&amp;#x27;+lb[i]+&amp;#x27;. &amp;#x27;+o+&amp;#x27;&amp;lt;/div&amp;gt;&amp;#x27;}).join(&amp;#x27;&amp;#x27;);
+  startTmr(lv.time);
+}
+
+function ans(idx){
+  if(st.ans)return;st.ans=true;clearInterval(tmrI);
+  var q=cfg.questions[st.qIdx];var lv=LEVELS[q.d];var ok=idx===q.a;
+  document.getElementById(&amp;#x27;o&amp;#x27;+idx).classList.add(ok?&amp;#x27;correct&amp;#x27;:&amp;#x27;wrong&amp;#x27;);
+  document.getElementById(&amp;#x27;o&amp;#x27;+q.a).classList.add(&amp;#x27;correct&amp;#x27;);
+  var fb=document.getElementById(&amp;#x27;fb&amp;#x27;),card=document.getElementById(&amp;#x27;qC&amp;#x27;);
+  if(ok){
+    st.score+=lv.pts;st.correct++;st.streak++;
+    if(st.streak&amp;gt;st.maxStreak)st.maxStreak=st.streak;
+    fb.className=&amp;#x27;fb ok&amp;#x27;;fb.textContent=&amp;#x27;🎉 +&amp;#x27;+lv.pts+&amp;#x27; điểm!&amp;#x27;;card.className=&amp;#x27;q-card ok&amp;#x27;;sndOk();
+    if(st.streak&amp;gt;=3)sndStreak();
+  }else{
+    st.streak=0;
+    fb.className=&amp;#x27;fb no&amp;#x27;;fb.textContent=&amp;#x27;❌ Đáp án: &amp;#x27;+[&amp;#x27;A&amp;#x27;,&amp;#x27;B&amp;#x27;,&amp;#x27;C&amp;#x27;,&amp;#x27;D&amp;#x27;][q.a];card.className=&amp;#x27;q-card no&amp;#x27;;sndNo();
+  }
+  document.getElementById(&amp;#x27;sc&amp;#x27;).textContent=st.score;
+  document.getElementById(&amp;#x27;streakEl&amp;#x27;).textContent=st.streak&amp;gt;1?&amp;#x27;🔥 Chuỗi &amp;#x27;+st.streak+&amp;#x27; câu đúng!&amp;#x27;:&amp;#x27;&amp;#x27;;
+  st.qIdx++;document.getElementById(&amp;#x27;btnN&amp;#x27;).classList.remove(&amp;#x27;hidden&amp;#x27;);
+  document.getElementById(&amp;#x27;btnN&amp;#x27;).textContent=st.qIdx&amp;gt;=cfg.total?&amp;#x27;🏆 Xem kết quả&amp;#x27;:&amp;#x27;Câu tiếp ➜&amp;#x27;;
+}
+function nextQ(){showQ()}
+
+function startTmr(secs){
+  clearInterval(tmrI);var t=secs;var el=document.getElementById(&amp;#x27;tmr&amp;#x27;);
+  el.textContent=&amp;#x27;⏱️ &amp;#x27;+t+&amp;#x27;s&amp;#x27;;el.classList.remove(&amp;#x27;urgent&amp;#x27;);
+  tmrI=setInterval(function(){t--;el.textContent=&amp;#x27;⏱️ &amp;#x27;+t+&amp;#x27;s&amp;#x27;;
+    if(t&amp;lt;=5){el.classList.add(&amp;#x27;urgent&amp;#x27;);sndUrgent()}
+    if(t&amp;lt;=0){clearInterval(tmrI);if(!st.ans){st.ans=true;sndNo();st.streak=0;
+      document.getElementById(&amp;#x27;fb&amp;#x27;).className=&amp;#x27;fb no&amp;#x27;;
+      document.getElementById(&amp;#x27;fb&amp;#x27;).textContent=&amp;#x27;⏰ Hết giờ! Đáp án: &amp;#x27;+[&amp;#x27;A&amp;#x27;,&amp;#x27;B&amp;#x27;,&amp;#x27;C&amp;#x27;,&amp;#x27;D&amp;#x27;][cfg.questions[st.qIdx].a];
+      document.getElementById(&amp;#x27;o&amp;#x27;+cfg.questions[st.qIdx].a).classList.add(&amp;#x27;correct&amp;#x27;);
+      document.getElementById(&amp;#x27;qC&amp;#x27;).className=&amp;#x27;q-card no&amp;#x27;;
+      document.getElementById(&amp;#x27;streakEl&amp;#x27;).textContent=&amp;#x27;&amp;#x27;;
+      st.qIdx++;document.getElementById(&amp;#x27;btnN&amp;#x27;).classList.remove(&amp;#x27;hidden&amp;#x27;);
+      document.getElementById(&amp;#x27;btnN&amp;#x27;).textContent=st.qIdx&amp;gt;=cfg.total?&amp;#x27;🏆 Xem kết quả&amp;#x27;:&amp;#x27;Câu tiếp ➜&amp;#x27;;
+    }}
+  },1000);
+}
+
+function showRes(){
+  clearInterval(tmrI);sndWin();
+  document.getElementById(&amp;#x27;gameArea&amp;#x27;).classList.add(&amp;#x27;hidden&amp;#x27;);
+  document.getElementById(&amp;#x27;resArea&amp;#x27;).classList.remove(&amp;#x27;hidden&amp;#x27;);
+  var pct=Math.round(st.correct/cfg.total*100);
+  var rank,rankCls,emoji;
+  if(pct&amp;gt;=90){rank=&amp;#x27;👑 TRẠNG NGUYÊN&amp;#x27;;rankCls=&amp;#x27;rank-gold&amp;#x27;;emoji=&amp;#x27;👑&amp;#x27;}
+  else if(pct&amp;gt;=70){rank=&amp;#x27;🥇 TRẠNG VÀNG&amp;#x27;;rankCls=&amp;#x27;rank-gold&amp;#x27;;emoji=&amp;#x27;🥇&amp;#x27;}
+  else if(pct&amp;gt;=50){rank=&amp;#x27;🥈 TRẠNG BẠC&amp;#x27;;rankCls=&amp;#x27;rank-silver&amp;#x27;;emoji=&amp;#x27;🥈&amp;#x27;}
+  else if(pct&amp;gt;=30){rank=&amp;#x27;🥉 TRẠNG CỎ&amp;#x27;;rankCls=&amp;#x27;rank-bronze&amp;#x27;;emoji=&amp;#x27;🥉&amp;#x27;}
+  else{rank=&amp;#x27;Tập sự&amp;#x27;;rankCls=&amp;#x27;rank-iron&amp;#x27;;emoji=&amp;#x27;📚&amp;#x27;}
+  document.getElementById(&amp;#x27;rE&amp;#x27;).textContent=emoji;
+  document.getElementById(&amp;#x27;rRank&amp;#x27;).textContent=rank;
+  document.getElementById(&amp;#x27;rRank&amp;#x27;).className=&amp;#x27;rank-title &amp;#x27;+rankCls;
+  document.getElementById(&amp;#x27;rName&amp;#x27;).textContent=cfg.name+&amp;#x27; • &amp;#x27;+cfg.subject;
+  document.getElementById(&amp;#x27;rScore&amp;#x27;).textContent=st.score;
+  document.getElementById(&amp;#x27;rCorrect&amp;#x27;).textContent=st.correct+&amp;#x27;/&amp;#x27;+cfg.total;
+  document.getElementById(&amp;#x27;rStreak&amp;#x27;).textContent=st.maxStreak;
+  document.getElementById(&amp;#x27;rMsg&amp;#x27;).textContent=pct&amp;gt;=90?&amp;#x27;Xuất sắc! Xứng danh Trạng nguyên!&amp;#x27;:pct&amp;gt;=70?&amp;#x27;Giỏi lắm! Tiếp tục phấn đấu!&amp;#x27;:pct&amp;gt;=50?&amp;#x27;Khá tốt! Ôn luyện thêm nhé!&amp;#x27;:&amp;#x27;Cần cố gắng nhiều hơn!&amp;#x27;;
+}
+
+function resetAll(){
+  try{clearInterval(tmrI)}catch(e){}
+  document.getElementById(&amp;#x27;gameArea&amp;#x27;).classList.add(&amp;#x27;hidden&amp;#x27;);
+  document.getElementById(&amp;#x27;resArea&amp;#x27;).classList.add(&amp;#x27;hidden&amp;#x27;);
+  document.getElementById(&amp;#x27;setup&amp;#x27;).classList.remove(&amp;#x27;hidden&amp;#x27;);
+  document.getElementById(&amp;#x27;setup&amp;#x27;).style.display=&amp;#x27;&amp;#x27;;
+}
+
+function shuffle(a){var b=a.slice();for(var i=b.length-1;i&amp;gt;0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t}return b}
+&amp;lt;/script&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;&lt;/textarea&gt;
 
 &lt;!-- OVERLAY --&gt;
 &lt;div class=&quot;ov&quot; id=&quot;ov&quot;&gt;&lt;iframe id=&quot;gf&quot; sandbox=&quot;allow-scripts allow-same-origin&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
@@ -2570,6 +3063,19 @@ function resetAll(){
   &lt;/div&gt;
 
   &lt;div class=&quot;cards&quot;&gt;
+
+    &lt;!-- ĐẤU TRƯỜNG TRI THỨC --&gt;
+    &lt;div class=&quot;card&quot; style=&quot;background:linear-gradient(145deg,#fef3c7,#fde68a,#fed7aa);border:2px solid #f59e0b;grid-column:1/-1&quot;&gt;
+      &lt;div style=&quot;display:flex;align-items:center;gap:14px;position:relative;z-index:1;flex-wrap:wrap;justify-content:center&quot;&gt;
+        &lt;div style=&quot;width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:2em;background:linear-gradient(135deg,#f59e0b,#d97706);box-shadow:0 4px 15px rgba(245,158,11,.3)&quot;&gt;🏆&lt;/div&gt;
+        &lt;div style=&quot;flex:1;min-width:200px&quot;&gt;
+          &lt;div class=&quot;ct&quot; style=&quot;color:#92400e;font-size:1.2em&quot;&gt;⚔️ ĐẤU TRƯỜNG TRI THỨC&lt;/div&gt;
+          &lt;div class=&quot;cs-t&quot; style=&quot;color:#b45309&quot;&gt;Trạng nguyên nhí • 100 câu Toán + 100 câu Tiếng Việt • 4 cấp độ&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button class=&quot;pb&quot; style=&quot;background:linear-gradient(135deg,#f59e0b,#d97706);box-shadow:0 4px 15px rgba(245,158,11,.3);min-width:200px;margin:0&quot; onclick=&quot;openGame(10,&#x27;🏆 Đấu Trường Tri Thức&#x27;)&quot;&gt;⚔️ VÀO ĐẤU TRƯỜNG&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
     &lt;div class=&quot;card card-math&quot;&gt;
       &lt;div class=&quot;ch&quot;&gt;&lt;div class=&quot;ci&quot;&gt;📐&lt;/div&gt;
         &lt;div&gt;&lt;div class=&quot;ct&quot;&gt;Trò chơi tương tác&lt;br&gt;Dạy Học TOÁN 5&lt;/div&gt;
