@@ -29,7 +29,6 @@ h1{font-family:'Baloo 2',cursive;font-size:1.8em;color:#1e3a6e;margin-bottom:2px
 .form-group input{width:100%;padding:14px 18px;border-radius:14px;border:2px solid #e2e8f0;
   font-size:1.05em;font-family:'Nunito',sans-serif;font-weight:600;outline:none;transition:.3s;background:#f8fafc}
 .form-group input:focus{border-color:#3b82f6;box-shadow:0 0 0 4px rgba(59,130,246,.1)}
-#password:focus{-webkit-text-security:none;text-security:none;color:#64748b}
 .btn-login{width:100%;padding:15px;border:none;border-radius:14px;
   background:linear-gradient(135deg,#3b82f6,#2563eb);color:white;
   font-family:'Baloo 2',cursive;font-size:1.3em;cursor:pointer;
@@ -74,7 +73,10 @@ h1{font-family:'Baloo 2',cursive;font-size:1.8em;color:#1e3a6e;margin-bottom:2px
     </div>
     <div class="form-group">
       <label>🔑 Mật khẩu</label>
-      <input type="text" id="password" style="-webkit-text-security:disc;text-security:disc;font-family:monospace;letter-spacing:2px" placeholder="Nhập mật khẩu..." autocomplete="off">
+      <div style="position:relative">
+        <input type="password" id="password" placeholder="Nhập mật khẩu..." autocomplete="off" style="padding-right:48px">
+        <button type="button" id="eyeBtn" onclick="togglePw()" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:1.3em;cursor:pointer;padding:4px;opacity:.5;transition:.3s" title="Hiện/Ẩn mật khẩu">👁️</button>
+      </div>
     </div>
     <button class="btn-login" id="btnLogin" onclick="doLogin()">🔐 ĐĂNG NHẬP</button>
     <div class="msg" id="msg"></div>
@@ -3532,6 +3534,12 @@ function doLogout() {
   document.getElementById('password').value = '';
   document.getElementById('msg').className = 'msg';
   document.getElementById('msg').textContent = '';
+}
+
+function togglePw(){
+  var pw=document.getElementById('password'),btn=document.getElementById('eyeBtn');
+  if(pw.type==='password'){pw.type='text';btn.textContent='🙈';btn.style.opacity='1'}
+  else{pw.type='password';btn.textContent='👁️';btn.style.opacity='.5'}
 }
 
 document.getElementById('password').addEventListener('keydown', function(e) {
