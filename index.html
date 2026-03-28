@@ -245,6 +245,10 @@ body{font-family:&#x27;Nunito&#x27;,sans-serif;background:#e8f4ff;color:#1e293b;
 .ft{font-size:.85em;color:#1e3a6e;font-weight:700;line-height:1.8}
 .fn{font-family:&#x27;Baloo 2&#x27;,cursive;font-weight:800;font-size:1em;color:#1e3a6e}
 @media(max-width:600px){.title{font-size:clamp(1.5em,7vw,2.2em)}.cards{gap:14px}.ci{width:40px;height:40px;font-size:1.2em}.ct{font-size:.9em}}
+
+.bg-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:12px;background:white;color:#1e3a6e;font-family:&#x27;Nunito&#x27;,sans-serif;font-weight:700;font-size:.9em;text-decoration:none;border:2px solid #93c5fd;transition:all .3s;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.bg-btn:hover{background:#1e40af;color:white;border-color:#1e40af;transform:translateY(-2px);box-shadow:0 4px 15px rgba(30,64,175,.25)}
+@media(max-width:480px){.bg-btn{padding:8px 14px;font-size:.8em;border-radius:10px}}
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
@@ -3397,6 +3401,31 @@ function shuffle(a){var b=a.slice();for(var i=b.length-1;i&amp;gt;0;i--){var j=M
 &lt;/div&gt;
 &lt;/div&gt;
 
+
+    &lt;!-- KHO BÀI GIẢNG ĐIỆN TỬ --&gt;
+    &lt;div class=&quot;card&quot; style=&quot;background:linear-gradient(145deg,#dbeafe,#bfdbfe,#93c5fd);border:2px solid #3b82f6;grid-column:1/-1;margin-top:8px&quot;&gt;
+      &lt;div style=&quot;text-align:center;position:relative;z-index:1&quot;&gt;
+        &lt;div style=&quot;display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:14px;flex-wrap:wrap&quot;&gt;
+          &lt;div style=&quot;width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.8em;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:white;box-shadow:0 4px 15px rgba(37,99,235,.3)&quot;&gt;📚&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div style=&quot;font-family:&#x27;Baloo 2&#x27;,cursive;font-size:1.3em;font-weight:800;color:#1e3a6e&quot;&gt;📚 KHO BÀI GIẢNG ĐIỆN TỬ&lt;/div&gt;
+            &lt;div style=&quot;font-size:.8em;color:#3b82f6;font-weight:600&quot;&gt;Bộ sách Kết nối tri thức với cuộc sống – Lớp 5&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div style=&quot;display:flex;flex-wrap:wrap;gap:8px;justify-content:center&quot; id=&quot;bgButtons&quot;&gt;
+          &lt;a class=&quot;bg-btn&quot; href=&quot;#&quot; onclick=&quot;openBG(&#x27;toan&#x27;);return false&quot; data-subject=&quot;toan&quot;&gt;📐 Môn Toán&lt;/a&gt;
+          &lt;a class=&quot;bg-btn&quot; href=&quot;#&quot; onclick=&quot;openBG(&#x27;tv&#x27;);return false&quot; data-subject=&quot;tv&quot;&gt;📖 Môn Tiếng Việt&lt;/a&gt;
+          &lt;a class=&quot;bg-btn&quot; href=&quot;#&quot; onclick=&quot;openBG(&#x27;kh&#x27;);return false&quot; data-subject=&quot;kh&quot;&gt;🔬 Môn Khoa học&lt;/a&gt;
+          &lt;a class=&quot;bg-btn&quot; href=&quot;#&quot; onclick=&quot;openBG(&#x27;ls&#x27;);return false&quot; data-subject=&quot;ls&quot;&gt;🌍 Lịch sử &amp; Địa lý&lt;/a&gt;
+          &lt;a class=&quot;bg-btn&quot; href=&quot;#&quot; onclick=&quot;openBG(&#x27;tn&#x27;);return false&quot; data-subject=&quot;tn&quot;&gt;🌱 HĐ Trải nghiệm&lt;/a&gt;
+          &lt;a class=&quot;bg-btn&quot; href=&quot;#&quot; onclick=&quot;openBG(&#x27;dd&#x27;);return false&quot; data-subject=&quot;dd&quot;&gt;💛 Môn Đạo đức&lt;/a&gt;
+          &lt;a class=&quot;bg-btn&quot; href=&quot;#&quot; onclick=&quot;openBG(&#x27;cn&#x27;);return false&quot; data-subject=&quot;cn&quot;&gt;⚙️ Môn Công nghệ&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
 &lt;div class=&quot;footer&quot;&gt;
   &lt;p class=&quot;ft&quot;&gt;© 2026 Game Vui học. Thiết kế &lt;span class=&quot;fn&quot;&gt;Chung Trần&lt;/span&gt; — Zalo 0913 031 073&lt;/p&gt;
 &lt;/div&gt;
@@ -3627,6 +3656,33 @@ for (var i = 0; i &lt; cards.length; i++) {
       card.style.transform = &#x27;&#x27;;
     });
   })(cards[i]);
+}
+
+
+// === KHO BÀI GIẢNG ĐIỆN TỬ ===
+// Thay link Google Drive vào đây (mở file index.html bằng Notepad, tìm LINK_)
+var BG_LINKS = {
+  toan: &#x27;https://hososotruonghoc.github.io/baigiangtoan5/&#x27;,
+  tv:   &#x27;LINK_TIENG_VIET&#x27;,
+  kh:   &#x27;LINK_KHOA_HOC&#x27;,
+  ls:   &#x27;LINK_LICH_SU_DIA_LY&#x27;,
+  tn:   &#x27;LINK_TRAI_NGHIEM&#x27;,
+  dd:   &#x27;LINK_DAO_DUC&#x27;,
+  cn:   &#x27;LINK_CONG_NGHE&#x27;
+};
+
+var BG_NAMES = {
+  toan: &#x27;Toán&#x27;, tv: &#x27;Tiếng Việt&#x27;, kh: &#x27;Khoa học&#x27;,
+  ls: &#x27;Lịch sử &amp; Địa lý&#x27;, tn: &#x27;HĐ Trải nghiệm&#x27;, dd: &#x27;Đạo đức&#x27;, cn: &#x27;Công nghệ&#x27;
+};
+
+function openBG(subject) {
+  var link = BG_LINKS[subject];
+  if (!link || link.indexOf(&#x27;LINK_&#x27;) === 0) {
+    alert(&#x27;📚 Bài giảng môn &#x27; + BG_NAMES[subject] + &#x27; đang được cập nhật!\nVui lòng quay lại sau.&#x27;);
+  } else {
+    window.open(link, &#x27;_blank&#x27;);
+  }
 }
 &lt;/script&gt;
 &lt;/body&gt;
